@@ -22,7 +22,13 @@
             <small class="text-muted">
                 Besoin de créer un compte ?
                 <a class="ml-2" href="{% url 'register' %}">Créez un compte maintenant</a>
+            </small> <br />
+            <small class="text-muted">
+                <a class="ml-2" href="{% url 'reset_password' %}" id="reset_password">
+                    Mot de passe oublié ?
+                </a>
             </small>
         </div>
+
     </div>
 {% endblock %}
