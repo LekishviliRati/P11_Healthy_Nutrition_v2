@@ -147,7 +147,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 django_heroku.settings(locals())
 
-# Forgot Password configuration
+# Forgot Password
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
