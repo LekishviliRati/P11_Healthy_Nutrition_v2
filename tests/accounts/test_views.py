@@ -13,6 +13,9 @@ class TestUsersViews(TestCase):
         )
         self.register_url = reverse("register")
         self.profile_url = reverse("profile")
+        self.reset_password_url = reverse("reset_password")
+        self.reset_password_sent_url = reverse("password_reset_done")
+        self.reset_password_complete_page = reverse("password_reset_complete")
 
     def test_registration(self):
         data = {
@@ -31,3 +34,21 @@ class TestUsersViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "accounts/profile.html")
+
+    def test_password_reset_page(self):
+        response = self.client.get(self.reset_password_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/password_reset.html")
+
+    def test_password_reset_sent_page(self):
+        response = self.client.get(self.reset_password_sent_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/password_reset_sent.html")
+
+    def test_reset_password_complete_page(self):
+        response = self.client.get(self.reset_password_complete_page)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "accounts/password_reset_done.html")
