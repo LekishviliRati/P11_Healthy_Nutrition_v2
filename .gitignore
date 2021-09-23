@@ -1,3 +1,7 @@
 env
 .idea.idea
 .idea
+better_nutrition/.env
+better_nutrition/__pycache__/settings.cpython-39.pyc
+better_nutrition/__pycache__/urls.cpython-39.pyc
+tests/functional_tests/__pycache__/test_5_autocomplete.cpython-39.pyc

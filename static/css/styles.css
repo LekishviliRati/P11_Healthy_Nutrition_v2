@@ -10287,6 +10287,7 @@ footer {
   width: 50%;
 }
 
+
 /*.card_container{*/
 /*  display: flex;*/
 /*  justify-content: space-around;*/
@@ -10357,3 +10358,6 @@ footer {
 /*    !*background-color: rgba(52, 90, 97, 0.2);*!*/
 /*    background-color: red;*/
 /*}*/
+
+.ui-autocomplete { max-height: 350px !important; overflow: auto !important; }
+

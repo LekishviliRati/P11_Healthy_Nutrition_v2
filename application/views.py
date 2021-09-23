@@ -4,9 +4,17 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from application.models import Category, Product, Favorites
 from accounts.models import CustomUser as User
+from django.http import JsonResponse
 
 
 def home_page(request):
+    # Added autocomplete function
+    if 'term' in request.GET:
+        qs = Product.objects.filter(name__icontains=request.GET.get('term'))
+        names = list()
+        for product in qs:
+            names.append(product.name)
+        return JsonResponse(names, safe=False)
     return render(request, 'application/home.html')
 
 
@@ -39,10 +47,10 @@ def substitute_products(request, product_id):
 
     substitutes = (
         Product.objects.filter(categories__in=product_category)
-        .annotate(nb_cat=Count("categories"))
-        .filter(nb_cat__gte=2)
-        .filter(score__lt=product_id.score)
-        .order_by("score")[:5]
+            .annotate(nb_cat=Count("categories"))
+            .filter(nb_cat__gte=2)
+            .filter(score__lt=product_id.score)
+            .order_by("score")[:5]
     )
 
     return render(request, 'application/substitute_products.html', {"product": product_id, "substitutes": substitutes})

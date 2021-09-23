@@ -87,3 +87,7 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "application/contact.html")
+
+    def test_autocomplete(self):
+        response = self.client.get("/?term=Pri")
+        self.assertEqual(response.status_code, 200)

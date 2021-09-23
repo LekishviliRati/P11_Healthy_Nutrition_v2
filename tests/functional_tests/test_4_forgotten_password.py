@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class NewVisitorTest(unittest.TestCase):
+class ForgottenPasswordTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -30,11 +30,11 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(3)
 
         # Fill password_reset form with box id = "id_email"
-        password2_box = self.browser.find_element_by_id('id_email')
-        password2_box.send_keys('rati.lekishvili1@gmail.com')
-        time.sleep(2)
-        password2_box.send_keys(Keys.ENTER)
-        time.sleep(3)
+        email_box = self.browser.find_element_by_id('id_email')
+        email_box.send_keys('rati.lekishvili1@gmail.com')
+        time.sleep(5)
+        email_box.send_keys(Keys.ENTER)
+        time.sleep(5)
 
 
 if __name__ == '__main__':

@@ -17,6 +17,9 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"  />
     <link rel="stylesheet" type="text/css" href="{% static 'js/scripts.js' %}"  />
+    <!-- Added for autocomplete -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Added for autocomplete-->
 </head>
 <body>
     <header class="base_header">
@@ -116,6 +119,46 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js">
+        </script>
+
+
+        <!-- Added for autocomplete scrollbar-->
+        <style>
+            .ui-autocomplete {
+            max-height: 100px;
+            overflow-y: auto;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+          }
+          /* IE 6 doesn't support max-height
+           * we use height instead, but this forces the menu to always be this tall
+           */
+          * html .ui-autocomplete {
+            height: 100px;
+          }
+        </style>
+        <!-- Added for autocomplete scrollbar-->
+
+
+        <!-- Added for autocomplete -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!-- Added for autocomplete -->
+
+        <!-- Added for autocomplete -->
+        <script>
+          $( function() {
+            $( "#nav_input_home" ).autocomplete({
+              source: "{% url 'home_page' %}",
+              minLength : 3
+            });
+            $( "#nav_input_base" ).autocomplete({
+              source: "{% url 'home_page' %}",
+              minLength : 3
+            });
+          });
+          </script>
+        <!-- Added for autocomplete -->
 </body>
 </html>
