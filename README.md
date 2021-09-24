@@ -33,7 +33,7 @@ ___
 
 ### *Install and run the program* 💻
 
-- **Download or Clone the project** : https://github.com/LekishviliRati/P8_Healthy_Nutrition.git
+- **Download or Clone the project** : https://github.com/LekishviliRati/P11_Healthy_Nutrition_v2.git
 - **Install requirements** : pip install -r requirements.txt
 - **Install and activate Virtualenv**
 - **Run** : python3 manage.py runserver
